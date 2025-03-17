@@ -10,7 +10,7 @@ cursor = conn.cursor()
 # Create webinars table
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS webinars (
-    id TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY,
     host_id TEXT NOT NULL,
     topic TEXT NOT NULL,
     start_time TEXT NOT NULL,
@@ -21,31 +21,32 @@ CREATE TABLE IF NOT EXISTS webinars (
 )
 ''')
 
-# Create webinar_registrations table
+# Create webinar_registrants table
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS webinar_registrations (
-    id TEXT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS webinar_registrants (
+    uuid TEXT PRIMARY KEY,
     webinar_id TEXT NOT NULL,
     name TEXT NOT NULL,
     email TEXT NOT NULL,
-    FOREIGN KEY (webinar_id) REFERENCES webinars (id)
+    FOREIGN KEY (webinar_id) REFERENCES webinars (uuid)
 )
 ''')
 
 # Create experts table
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS experts (
-    id TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY,
     name TEXT NOT NULL,
     specialty TEXT NOT NULL,
-    is_available BOOLEAN NOT NULL
+    is_available BOOLEAN NOT NULL,
+    zoom_host_id TEXT NOT NULL
 )
 ''')
 
 # Create appointments table
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS appointments (
-    id TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY,
     expert_id TEXT NOT NULL,
     service_id TEXT NOT NULL,
     datetime TEXT NOT NULL,
@@ -54,7 +55,7 @@ CREATE TABLE IF NOT EXISTS appointments (
     client_phone TEXT,
     is_booked BOOLEAN NOT NULL,
     status TEXT,           
-    FOREIGN KEY (expert_id) REFERENCES experts (id)
+    FOREIGN KEY (expert_id) REFERENCES experts (uuid)
 )
 ''')
 
@@ -114,28 +115,18 @@ webinar_urls = [
     "https://mock-zoom.elternleben.de/webinare/bindung-beziehung-erste-lebensjahre"
 ]
 
-
-# German host IDs
-host_ids = [
-    "dr.mueller",
-    "s.schmidt",
-    "l.wagner",
-    "m.becker",
-    "j.hoffmann"
-]
-
 # German names for experts
 expert_data = [
-    ("Dr. Anna Weber", "Kinderärztin"),
-    ("Thomas Schröder", "Entwicklungspsychologe"),
-    ("Marion Fischer", "Hebamme"),
-    ("Prof. Dr. Klaus Neumann", "Pädagoge"),
-    ("Sabine Brandt", "Ernährungsberaterin"),
-    ("Julia Keller", "Schlafberaterin"),
-    ("Martin Gruber", "Familientherapeut"),
-    ("Dr. Petra Schulz", "Kinderpsychologin"),
-    ("Sophie Zimmermann", "Logopädin"),
-    ("Daniel König", "Sozialpädagoge")
+    ("Dr. Anna Weber", "Kinderärztin", "host_weber"),
+    ("Thomas Schröder", "Entwicklungspsychologe", "host_schroeder"),
+    ("Marion Fischer", "Hebamme", "host_fischer"),
+    ("Prof. Dr. Klaus Neumann", "Pädagoge", "host_neumann"),
+    ("Sabine Brandt", "Ernährungsberaterin", "host_brandt"),
+    ("Julia Keller", "Schlafberaterin", "host_keller"),
+    ("Martin Gruber", "Familientherapeut", "host_gruber"),
+    ("Dr. Petra Schulz", "Kinderpsychologin", "host_schulz"),
+    ("Sophie Zimmermann", "Logopädin", "host_zimmermann"),
+    ("Daniel König", "Sozialpädagoge", "host_koenig")
 ]
 
 # German client names
@@ -194,6 +185,22 @@ service_ids = [
     "bindungsberatung"
 ]
 
+# Insert experts
+expert_ids = []
+for name, specialty, zoom_host_id in expert_data:
+    expert_id = str(uuid.uuid4())
+    expert_ids.append(expert_id)
+    cursor.execute(
+        "INSERT INTO experts (uuid, name, specialty, is_available, zoom_host_id) VALUES (?, ?, ?, ?, ?)",
+        (
+            expert_id,
+            name,
+            specialty,
+            random.choice([1, 1, 1, 0]),  # 75% available
+            zoom_host_id
+        )
+    )
+
 # Insert webinars
 webinar_ids = []
 start_date = datetime.now()
@@ -201,11 +208,15 @@ for i in range(10):
     webinar_id = str(uuid.uuid4())
     webinar_ids.append(webinar_id)
     webinar_start = start_date + timedelta(days=i*3, hours=random.randint(9, 17))
+    
+    # Select a random expert to be the host
+    expert_id = random.choice(expert_ids)
+    
     cursor.execute(
-        "INSERT INTO webinars (id, host_id, topic, start_time, duration, agenda, join_url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO webinars (uuid, host_id, topic, start_time, duration, agenda, join_url, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         (
             webinar_id,
-            random.choice(host_ids),
+            expert_id,
             webinar_topics[i],
             webinar_start.strftime("%Y-%m-%dT%H:%M:%S"),
             random.choice([60, 90, 120]),
@@ -229,7 +240,7 @@ for webinar_id in webinar_ids:
         email = f"{first_name.lower()}.{last_name.lower()}@{random.choice(german_domains)}"
         
         cursor.execute(
-            "INSERT INTO webinar_registrations (id, webinar_id, name, email) VALUES (?, ?, ?, ?)",
+            "INSERT INTO webinar_registrants (uuid, webinar_id, name, email) VALUES (?, ?, ?, ?)",
             (
                 str(uuid.uuid4()),
                 webinar_id,
@@ -237,21 +248,6 @@ for webinar_id in webinar_ids:
                 email
             )
         )
-
-# Insert experts
-expert_ids = []
-for name, specialty in expert_data:
-    expert_id = str(uuid.uuid4())
-    expert_ids.append(expert_id)
-    cursor.execute(
-        "INSERT INTO experts (id, name, specialty, is_available) VALUES (?, ?, ?, ?)",
-        (
-            expert_id,
-            name,
-            specialty,
-            random.choice([1, 1, 1, 0])  # 75% available (SQLite uses 1/0 for boolean)
-        )
-    )
 
 # Insert appointments
 for i in range(50):
@@ -273,7 +269,7 @@ for i in range(50):
     status = random.choice(["confirmed", "pending"]) if is_booked else None
     
     cursor.execute(
-        "INSERT INTO appointments (id, expert_id, service_id, datetime, client_name, client_email, client_phone, is_booked, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO appointments (uuid, expert_id, service_id, datetime, client_name, client_email, client_phone, is_booked, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         (
             str(uuid.uuid4()),
             random.choice(expert_ids),
@@ -294,7 +290,7 @@ conn.commit()
 cursor.execute("SELECT COUNT(*) FROM webinars")
 webinar_count = cursor.fetchone()[0]
 
-cursor.execute("SELECT COUNT(*) FROM webinar_registrations")
+cursor.execute("SELECT COUNT(*) FROM webinar_registrants")
 registration_count = cursor.fetchone()[0]
 
 cursor.execute("SELECT COUNT(*) FROM experts")
@@ -312,4 +308,4 @@ print(f"- {registration_count} webinar registrations")
 print(f"- {expert_count} experts")
 print(f"- {appointment_count} appointments ({booked_appointment_count} booked)")
 
-conn.close() 
+conn.close()

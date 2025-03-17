@@ -36,7 +36,6 @@ This package contains the following resources:
 | description | String | Brief description/summary of the content |
 | author | String | Content author (may be empty) |
 | category | String | Primary content category |
-| content_type | String | Type of content (article, FAQ, guide, etc.) |
 | crawled_at | String | Timestamp when the content was crawled |
 
 ### Conversation Data (`processed_conversations.csv`)
@@ -156,6 +155,11 @@ The mock API provides endpoints for webinar management and appointment booking. 
 
 ### Setting Up and Running
 
+0. **Navigate to the API folder**:
+   ```
+   cd mock_api
+   ```
+
 1. **Install dependencies**:
    ```
    pip install fastapi uvicorn sqlalchemy pydantic
@@ -168,6 +172,7 @@ The mock API provides endpoints for webinar management and appointment booking. 
    This creates a SQLite database (`mock_api.db`) with German examples of webinars, experts, and appointments.
 
 3. **Run the FastAPI application**:
+   From the repository root run
    ```
    uvicorn mock_api:app --reload
    ```

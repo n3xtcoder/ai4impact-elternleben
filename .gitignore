@@ -126,3 +126,11 @@ dmypy.json
 
 # VS Code
 .vscode/
+
+# Database
+*.db
+*.db-journal
+*.db-lock
+*.db-trace
+*.db-trace-lock
+*.db-trace-journal
