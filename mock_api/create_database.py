@@ -48,7 +48,7 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS appointments (
     uuid TEXT PRIMARY KEY,
     expert_id TEXT NOT NULL,
-    service_id TEXT NOT NULL,
+    service TEXT NOT NULL,
     datetime TEXT NOT NULL,
     client_name TEXT,
     client_email TEXT,
@@ -172,7 +172,7 @@ client_phones = [
 ]
 
 # Service IDs in German contexts
-service_ids = [
+services = [
     "erstberatung",
     "folgeberatung",
     "schlafberatung",
@@ -269,11 +269,11 @@ for i in range(50):
     status = random.choice(["confirmed", "pending"]) if is_booked else None
     
     cursor.execute(
-        "INSERT INTO appointments (uuid, expert_id, service_id, datetime, client_name, client_email, client_phone, is_booked, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO appointments (uuid, expert_id, service, datetime, client_name, client_email, client_phone, is_booked, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         (
             str(uuid.uuid4()),
             random.choice(expert_ids),
-            random.choice(service_ids),
+            random.choice(services),
             appointment_date.strftime("%Y-%m-%dT%H:%M:%S"),
             client_name,
             client_email,

@@ -4,7 +4,7 @@ from typing import List, Optional, Dict, Any
 from sqlalchemy import create_engine, Column, String, Integer, Boolean
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 import uuid
-
+from datetime import datetime
 # Database setup
 DATABASE_URL = "sqlite:///./mock_api.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
@@ -45,7 +45,7 @@ class Appointment(Base):
     __tablename__ = "appointments"
     uuid = Column(String, primary_key=True, index=True)
     expert_id = Column(String, index=True)
-    service_id = Column(String, index=True)
+    service = Column(String, index=True)
     datetime = Column(String)  # Format: YYYY-MM-DD HH:MM
     client_name = Column(String, nullable=True)
     client_email = Column(String, nullable=True)
@@ -98,23 +98,22 @@ class AppointmentCreateRequest(BaseModel):
     client_name: str
     client_email: Optional[str] = None
     client_phone: Optional[str] = None
-    service_id: str
+    service: str
     expert_id: str
-    datetime: str  # Format: YYYY-MM-DD HH:MM
 
 class AppointmentResponse(BaseModel):
     uuid: str
     client_name: str
     client_email: Optional[str] = None
     client_phone: Optional[str] = None
-    service_id: str
+    service: str
     expert_id: str
     datetime: str  # Format: YYYY-MM-DD HH:MM
     status: Optional[str] = None
 
 class AppointmentUpdateRequest(BaseModel):
     datetime: Optional[str] = None  # Format: YYYY-MM-DD HH:MM
-    service_id: Optional[str] = None
+    service: Optional[str] = None
     status: Optional[str] = None
 
 # Dependency to get the database session
@@ -243,14 +242,15 @@ def get_available_slots(expert_id: str):
 @app.post("/bookings/new", response_model=AppointmentResponse)
 def book_appointment(request: AppointmentCreateRequest, db: Session = Depends(get_db)):
     appointment_id = str(uuid.uuid4())
+    appointment_datetime = datetime.now().strftime("%Y-%m-%d %H:%M")
     appointment = Appointment(
         uuid=appointment_id,
         client_name=request.client_name,
         client_email=request.client_email,
         client_phone=request.client_phone,
-        service_id=request.service_id,
+        service=request.service,
         expert_id=request.expert_id,
-        datetime=request.datetime,
+        datetime=appointment_datetime,
         status="confirmed"  # Default status for new appointments
     )
     db.add(appointment)
@@ -265,10 +265,9 @@ def update_appointment(appointment_id: str, request: AppointmentUpdateRequest, d
     if not appointment:
         raise HTTPException(status_code=404, detail="Appointment not found")
 
-    if request.datetime:
-        appointment.datetime = request.datetime
-    if request.service_id:
-        appointment.service_id = request.service_id
+    appointment.datetime = datetime.now().strftime("%Y-%m-%d %H:%M"),
+    if request.service:
+        appointment.service = request.service
     if request.status:
         appointment.status = request.status
 
