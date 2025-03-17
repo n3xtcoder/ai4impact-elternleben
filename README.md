@@ -22,6 +22,7 @@ This package contains the following resources:
 - **[metadata.csv](metadata.csv)**: Metadata for all content pages from Elternleben.de
 - **[processed_conversations.csv](processed_conversations.csv)**: Anonymized conversation logs from a previous chatbot prototype
 - **[content/](content/)**: Directory containing markdown files with content from the website
+- **[mock_api/](mock_api/)**: Directory containing the Mock API for service integrations
 
 ## Data Schema
 
@@ -65,9 +66,9 @@ This package contains the following resources:
   - 0: No escalation needed
   - 1: Escalation to human operator was needed
 - `recommended_approach` values:
-  - 1: Content recommendation needed
+  - 1: Personalized response needed
   - 2: Service booking assistance needed
-  - 3: Personalized response needed
+  - 3: Paid content recommendation needed
   - 4: Expert consultation required
 
 
@@ -155,14 +156,16 @@ The mock API provides endpoints for webinar management and appointment booking. 
 
 ### Setting Up and Running
 
-0. **Navigate to the API folder**:
+0. **Create a virtual environment and install dependencies**:
    ```
-   cd mock_api
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
    ```
 
-1. **Install dependencies**:
+1. **Navigate to the API folder**:
    ```
-   pip install fastapi uvicorn sqlalchemy pydantic
+   cd mock_api
    ```
 
 2. **Create the database with sample data**:
@@ -172,7 +175,6 @@ The mock API provides endpoints for webinar management and appointment booking. 
    This creates a SQLite database (`mock_api.db`) with German examples of webinars, experts, and appointments.
 
 3. **Run the FastAPI application**:
-   From the repository root run
    ```
    uvicorn mock_api:app --reload
    ```
@@ -185,12 +187,15 @@ The mock API provides endpoints for webinar management and appointment booking. 
 ### Available Endpoints
 
 #### Webinar API (Zoom-like)
-- `GET /users/{user_id}/webinars` - List webinars for a host
-- `POST /webinars/{webinar_id}/registrants` - Register for a webinar
+
+- `GET /webinars` - List webinars
+- `GET /experts/{expert_id}/webinars` - List webinars per expert
 - `GET /webinars/{webinar_id}/registrants` - List webinar registrants
+- `POST /webinars/{webinar_id}/registrants` - Create a new webinar registration
 - `PATCH /webinars/{webinar_id}/registrants/{registrant_id}` - Update registration
 
 #### Consultation API (SimplyBook-like)
+- `GET /experts` - List all experts
 - `GET /experts/available` - List available experts
 - `GET /experts/{expert_id}/available-slots` - Get expert's available time slots
 - `POST /bookings/new` - Create a new appointment
