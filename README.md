@@ -1,4 +1,4 @@
-# Elternleben.de Chatbot Hackathon
+# Transforming Digital Family Support in Germany (with Elternleben.de)
 
 ## Challenge Overview
 
@@ -36,10 +36,10 @@ The challenge splits into two primary goals:
 This package contains the following resources:
 
 - **[data_exploration.ipynb](data_exploration.ipynb)**: Jupyter notebook with sample analysis to help understand the dataset
-- **[metadata.csv](metadata.csv)**: Metadata for all content pages from Elternleben.de
-- **[processed_conversations.csv](processed_conversations.csv)**: Anonymized conversation logs from a previous chatbot prototype
-- **[content/](content/)**: Directory containing markdown files with content from the website
-- **[mock_api/](mock_api/)**: Directory containing the Mock API for service integrations
+- **[metadata.csv](data/metadata.csv)**: Metadata for all content pages from Elternleben.de
+- **[processed_conversations.csv](data/processed_conversations.csv)**: Anonymized conversation logs from a previous chatbot prototype
+- **[content/](data/content/)**: Directory containing markdown files with content from the website
+- **[mock_api/](data/mock_api/)**: Directory containing the Mock API for service integrations
 
 ## Data Schema
 
@@ -141,7 +141,7 @@ elternleben
 └── ...
 ```
 
-The directory structure reflects the content categorization on the website and shows topic relationships.
+The directory structure reflects the content categorization on the website and shows topic relationships. The full directory tree can be found in [**tree.md**](data/tree.md).
 
 ## Service Integration Guidelines
 
