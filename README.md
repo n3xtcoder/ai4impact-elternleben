@@ -2,14 +2,31 @@
 
 ## Challenge Overview
 
-This hackathon focuses on building a conversational AI system for Elternleben.de with two primary goals:
+This hackathon focuses on building a conversational AI system for Elternleben.de. 
+
+Elternleben.de is a non-profit organization dedicated to provide support, guidance, and expert knowledge they need to create a loving and healthy environment for their children. Through trusted online counseling, educational content, and personalized programs, Elternleben.de ensures no parent navigates the journey alone.
+
+✅ Professional expertise – A network of highly trained specialists offering practical, competent and research-based assistance.
+
+✅ Non-profit mission – driven by transparency and social impact, reinvesting resources to strengthen families and make expert support accessible to all.
+
+✅ Inclusive & welcoming support – Judgment-free help for all parents, regardless of background.
+
+This challenge is supported by Generali.
+
+![](img/elternleben-logo.jpg)![](img/generali-logo.jpg)
+
+The challenge splits into two primary goals:
 
 1. **High-quality Conversational Intelligence and User Engagement**
+![](img/goal-1.jpg)
    - Building an empathetic, engaging conversation flow with personalized responses
    - Maintaining context and understanding user needs
    - Ensuring high-quality, accurate content recommendations
 
+
 2. **Multi-Touchpoint Service Integration**
+![](img/goal-2.jpg)
    - Creating seamless connections between the chatbot and service ecosystem
    - Intelligent routing between automated responses and expert consultations
    - Implementing direct scheduling capabilities and analytics tracking
