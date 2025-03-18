@@ -14,7 +14,7 @@ Elternleben.de is a non-profit organization dedicated to provide support, guidan
 
 This challenge is supported by Generali.
 
-![](img/elternleben-logo.jpg)![](img/generali-logo.jpg)
+<img src="img/elternleben-logo.jpg" alt="ElternLeben Logo" width="163"/> <img src="img/generali-logo.jpg" alt="Generali Logo" width="200"/> <img src="img/n3xtcoder_logo.png" alt="N3XTCODER Logo" width="200"/>
 
 The challenge splits into two primary goals:
 
@@ -167,32 +167,61 @@ Represents one-on-one consultations users can schedule:
 
 For the hackathon, mock API interfaces for these services are provided. No actual connection to Zoom or SimplyBook is needed.
 
+## Setting Up Your Environment
+
+Before exploring the data or running the mock API, you'll need to set up your Python environment:
+
+1. **Clone this repository**:
+   ```bash
+   git clone <repository-url>
+   cd ai4impact-elternleben
+   ```
+
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv .venv
+   ```
+
+3. **Activate the virtual environment**:
+   - On Windows:
+     ```powershell
+     .venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source .venv/bin/activate
+     ```
+
+4. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run Jupyter Notebook**:
+   ```bash
+   jupyter notebook
+   ```
+   Then open `data_exploration.ipynb` in your browser to start exploring the dataset.
+
 ## Running the Mock API
 
 The mock API provides endpoints for webinar management and appointment booking. It uses a SQLite database with German-language sample data.
 
 ### Setting Up and Running
 
-0. **Create a virtual environment and install dependencies**:
-   ```
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   ```
-
 1. **Navigate to the API folder**:
-   ```
+   ```bash
    cd mock_api
    ```
 
 2. **Create the database with sample data**:
-   ```
+   ```bash
    python create_database.py
    ```
    This creates a SQLite database (`mock_api.db`) with German examples of webinars, experts, and appointments.
 
 3. **Run the FastAPI application**:
-   ```
+   ```bash
    uvicorn mock_api:app --reload
    ```
    The API will be available at http://127.0.0.1:8000
