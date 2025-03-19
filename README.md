@@ -78,7 +78,7 @@ This package contains the following resources:
     4. **Support-Seeking Conversations**: Emotional validation requests, shared experiences, uncertainty/anxiety about parenting decisions, confidence-building interactions
     5. **Transition Points**: Life stage changes (newborn to infant, starting kindergarten), developmental milestone concerns, shifting from information gathering to service booking
 - A single conversation (identified by `conversation_id`) may contain multiple message exchanges
-- `response_links` may contain multiple URLs separated by semicolons
+- `response_links_1` - `response_links_5` contain URLs from the response
 - `needs_escalation` values:
   - 0: No escalation needed
   - 1: Escalation to human operator was needed
