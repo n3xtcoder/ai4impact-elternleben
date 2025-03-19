@@ -83,10 +83,14 @@ This package contains the following resources:
   - 0: No escalation needed
   - 1: Escalation to human operator was needed
 - `recommended_approach` values:
-  - 1: Personalized response needed
-  - 2: Service booking assistance needed
-  - 3: Paid content recommendation needed
-  - 4: Expert consultation required
+  - Information Support
+  - Expert Guidance
+  - Emotional Support
+  - Learning Resources
+  - Community Connection
+  - Urgent Assistance
+
+![Approach Categories](img/approach-categories.svg)
 
 
 
