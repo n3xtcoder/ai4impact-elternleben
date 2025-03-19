@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f9f9f9" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Parental Support: Recommended Approach Categories</text>
+  
+  <!-- Main Categories -->
+  <g>
+    <!-- Information Support -->
+    <rect x="100" y="80" width="200" height="60" rx="8" ry="8" fill="#4285F4" />
+    <text x="200" y="118" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Information Support</text>
+    
+    <!-- Emotional Support -->
+    <rect x="350" y="80" width="200" height="60" rx="8" ry="8" fill="#EA4335" />
+    <text x="450" y="118" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Emotional Support</text>
+    
+    <!-- Urgent Assistance -->
+    <rect x="600" y="80" width="200" height="60" rx="8" ry="8" fill="#FBBC05" />
+    <text x="700" y="118" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Urgent Assistance</text>
+    
+    <!-- Expert Guidance -->
+    <rect x="100" y="180" width="200" height="60" rx="8" ry="8" fill="#34A853" />
+    <text x="200" y="218" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Expert Guidance</text>
+    
+    <!-- Learning Resources -->
+    <rect x="350" y="180" width="200" height="60" rx="8" ry="8" fill="#8334A2" />
+    <text x="450" y="218" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Learning Resources</text>
+    
+    <!-- Community Connection -->
+    <rect x="600" y="180" width="200" height="60" rx="8" ry="8" fill="#F57C00" />
+    <text x="700" y="218" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Community Connection</text>
+  </g>
+  
+  <!-- Subcategories -->
+  <g>
+    <!-- Information Support subcategories -->
+    <rect x="120" y="160" width="160" height="2" fill="#4285F4" />
+    <rect x="120" y="280" width="160" height="30" rx="5" ry="5" fill="#D6E9FF" />
+    <text x="200" y="300" font-family="Arial" font-size="14" text-anchor="middle">Child Development</text>
+    <rect x="120" y="320" width="160" height="30" rx="5" ry="5" fill="#D6E9FF" />
+    <text x="200" y="340" font-family="Arial" font-size="14" text-anchor="middle">Health Guidance</text>
+    <rect x="120" y="360" width="160" height="30" rx="5" ry="5" fill="#D6E9FF" />
+    <text x="200" y="380" font-family="Arial" font-size="14" text-anchor="middle">Parenting Tips</text>
+    
+    <!-- Emotional Support subcategories -->
+    <rect x="370" y="160" width="160" height="2" fill="#EA4335" />
+    <rect x="370" y="280" width="160" height="30" rx="5" ry="5" fill="#FFD6D6" />
+    <text x="450" y="300" font-family="Arial" font-size="14" text-anchor="middle">Reassurance/Validation</text>
+    <rect x="370" y="320" width="160" height="30" rx="5" ry="5" fill="#FFD6D6" />
+    <text x="450" y="340" font-family="Arial" font-size="14" text-anchor="middle">Stress Relief</text>
+    
+    <!-- Urgent Assistance subcategories -->
+    <rect x="620" y="160" width="160" height="2" fill="#FBBC05" />
+    <rect x="620" y="280" width="160" height="30" rx="5" ry="5" fill="#FFF2CC" />
+    <text x="700" y="300" font-family="Arial" font-size="14" text-anchor="middle">Crisis Resources</text>
+    <rect x="620" y="320" width="160" height="30" rx="5" ry="5" fill="#FFF2CC" />
+    <text x="700" y="340" font-family="Arial" font-size="14" text-anchor="middle">Immediate Guidance</text>
+    
+    <!-- Expert Guidance subcategories -->
+    <rect x="120" y="260" width="160" height="2" fill="#34A853" />
+    <rect x="120" y="400" width="160" height="30" rx="5" ry="5" fill="#D7EDDD" />
+    <text x="200" y="420" font-family="Arial" font-size="14" text-anchor="middle">Expert Consultation</text>
+    
+    <!-- Learning Resources subcategories -->
+    <rect x="370" y="260" width="160" height="2" fill="#8334A2" />
+    <rect x="370" y="360" width="160" height="30" rx="5" ry="5" fill="#E8D6F0" />
+    <text x="450" y="380" font-family="Arial" font-size="14" text-anchor="middle">Courses/Books</text>
+    <rect x="370" y="400" width="160" height="30" rx="5" ry="5" fill="#E8D6F0" />
+    <text x="450" y="420" font-family="Arial" font-size="14" text-anchor="middle">Free Resources</text>
+    
+    <!-- Community Connection subcategories -->
+    <rect x="620" y="260" width="160" height="2" fill="#F57C00" />
+    <rect x="620" y="360" width="160" height="30" rx="5" ry="5" fill="#FFE6CC" />
+    <text x="700" y="380" font-family="Arial" font-size="14" text-anchor="middle">Workshops/Webinars</text>
+  </g>
+</svg>
