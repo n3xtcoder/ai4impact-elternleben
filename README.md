@@ -33,6 +33,22 @@ The challenge splits into two primary goals:
 
 ## Dataset Contents
 
+### Dataset Status
+This dataset represents a **static snapshot** of ElternLeben.de's content base as of the start of the AI for Impact programme. While ElternLeben's live website regularly publishes new pages and improves existing content, this repository version will remain unchanged throughout the programme duration.
+
+### For Participants
+- This dataset is provided exclusively for use in the AI for Impact programme
+- The content reflects ElternLeben.de's structure at the time of capture
+- No updates to this dataset will be provided during the programme
+
+### Building Update-Ready Solutions
+Participants are encouraged to:
+- Design solutions that could accommodate future content updates
+- Consider how a production system might connect to TYPO3 content management system
+- Develop mock update mechanisms if desired for demonstration purposes
+
+### Dataset Content
+
 This package contains the following resources:
 
 - **[data_exploration.ipynb](data_exploration.ipynb)**: Jupyter notebook with sample analysis to help understand the dataset
