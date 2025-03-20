@@ -1,24 +1,37 @@
-Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+# AI for Impact: Restricted Use License
 
-This data is provided by [wellcome gGmbH](https://www.wellcome-online.de/) ([ElternLeben.de](https://www.elternleben.de/)) and prepared by [N3XTCODER Softwareentwicklungs GmbH](https://n3xtcoder.org/) for the **AI for Impact: The Programme for the Changemakers**.
+This data/repository is provided by wellcome gGmbH (ElternLeben.de) and prepared by N3XTCODER Softwareentwicklungs GmbH for exclusive use in the **AI for Impact: The Programme for the Changemakers**.
 
-This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+## Authorized Users and Scope
 
-To view a copy of this license, visit:
-[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
+1. **Authorized Users:** Only official participants of the "AI for Impact: The Programme for the Changemakers" are granted permission to access, use, copy, modify, and distribute this data/repository for purposes directly related to the program.
 
-Attribution Requirements:
-When using this dataset, please provide attribution as follows:
+2. **Scope of Use:** Authorized users may utilize this data/repository for both commercial and non-commercial purposes within the context of the AI for Impact programme, including research, development, prototyping, and the creation of MVPs and solutions for the specified challenges.
 
-*"Data provided by wellcome gGmbH (ElternLeben.de), prepared by N3XTCODER Softwareentwicklungs GmbH"*
+3. **Time Limitation:** Access and usage rights are valid for the duration of the programme (March - May 2025) and any authorized post-programme activities.
 
-Usage Terms:
+## Restrictions
 
-This dataset is provided for use in the **AI for Impact: The Programme for the Changemakers** and related educational/research purposes. 
+1. **Prohibition of Transfer:** Redistribution, sharing, or transfer of this data/repository to individuals or entities not officially participating in the AI for Impact programme is strictly prohibited.
 
-- You are free to **share** (copy and redistribute) and **adapt** (remix, transform, build upon) this dataset for **non-commercial** purposes.
-- Use is allowed in educational and research contexts, especially within **AI for Impact: The Programme for the Changemakers**.
-- **Commercial use** is **not allowed** without explicit permission from wellcome gGmbH.
+2. **Use Outside Programme:** Use of this data/repository outside the scope of the AI for Impact programme is strictly prohibited without explicit written permission.
 
-For commercial inquiries, please contact:
-[Insert contact email or link]
+## Requirements
+
+1. **Attribution Requirement:** All usage must include the following attribution: 
+   *"Data provided by wellcome gGmbH (ElternLeben.de), prepared by N3XTCODER Softwareentwicklungs GmbH for AI for Impact: The Programme for the Changemakers"*
+
+2. **Compliance with Programme Rules:** Users must adhere to all programme guidelines and ethical standards established by N3XTCODER and its partners.
+
+## Rights and Termination
+
+1. **Rights Reserved:** All rights not expressly granted in this license are reserved by wellcome gGmbH and N3XTCODER Softwareentwicklungs GmbH.
+
+2. **Termination:** wellcome gGmbH and N3XTCODER Softwareentwicklungs GmbH reserve the right to revoke access for violations of these terms or misuse of the data.
+
+## Permission Requests
+
+For permission requests outside the scope of this license, please contact:
+info@elternleben.de
+
+Copyright © 2025 wellcome gGmbH (data owner) and N3XTCODER Softwareentwicklungs GmbH (data processor). All rights reserved.
