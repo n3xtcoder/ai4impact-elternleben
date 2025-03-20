@@ -1,6 +1,5 @@
 content
 └── elternleben
-    ├── 1000-tage
     ├── baby
     │   ├── baby-beschaeftigen
     │   ├── babyausstattung

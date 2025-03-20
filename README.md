@@ -147,7 +147,6 @@ The content follows this hierarchical structure:
 
 ```
 elternleben
-├── 1000-tage
 ├── baby
 │   ├── baby-beschaeftigen
 │   ├── babyausstattung
