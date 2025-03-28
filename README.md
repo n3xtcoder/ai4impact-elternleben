@@ -2,9 +2,9 @@
 
 ## Challenge Overview
 
-This hackathon focuses on building a conversational AI system for Elternleben.de. 
+This hackathon focuses on building a conversational AI system for [ElternLeben.de](https://www.elternleben.de/). 
 
-Elternleben.de is a non-profit organization dedicated to provide support, guidance, and expert knowledge they need to create a loving and healthy environment for their children. Through trusted online counseling, educational content, and personalized programs, Elternleben.de ensures no parent navigates the journey alone.
+[ElternLeben.de](https://www.elternleben.de/) is a non-profit organization dedicated to provide support, guidance, and expert knowledge they need to create a loving and healthy environment for their children. Through trusted online counseling, educational content, and personalized programs, [ElternLeben.de](https://www.elternleben.de/) ensures no parent navigates the journey alone.
 
 ✅ Professional expertise – A network of highly trained specialists offering practical, competent and research-based assistance.
 
@@ -33,31 +33,35 @@ The challenge splits into two primary goals:
 
 ## Implementation Guidelines
 
-To ensure the chatbot aligns with ElternLeben.de's mission and values while effectively meeting these challenges, the following guidelines should be followed:
+To create a chatbot that truly embodies [ElternLeben.de](https://www.elternleben.de/)'s warm and supportive spirit, we recommend these guidelines to help you build something special:
 
-### 1. Content Guidelines
-- Follow the principles of attachment parenting and education with a focus on the child's needs
-- Use only information from the ElternLeben repository and always link to the source or recommend the user to read the linked content
-- Never answer medical questions—instead, recommend using the e-mail counseling service or seeking advice from a doctor
-- Never promote:
-  - Aggressive or violent behavior
-  - Punishment (physical or emotional)
-  - Reward-based parenting methods
-- Stay within scope—do not answer questions outside of child development, babies, and family topics
+### 1. Content Guidelines 📖
+- The chatbot follows the principles of [attachment parenting](https://www.elternleben.de/erziehung-und-foerderung/erziehungsstile/paedagogische-ansaetze-in-der-erziehung/#c5334) and child-focused education.
+- It only provides information from the **ElternLeben** repository and always links to reliable sources.
+- **Medical questions?** The bot won’t answer them! Instead, it will recommend contacting ElternLeben’s **e-mail counseling service** or a doctor.
+- The bot never promotes:
+  - 🚫 Aggressive or violent behavior
+  - 🚫 Punishment (physical or emotional)
+  - 🚫 Reward-based parenting methods
+- It stays **on topic** and does not answer questions outside of child development, parenting, and family life.
 
-### 2. Interaction & User Guidance
-- Be empathetic and positive, acknowledging the challenges the user might be facing
-- If the user or child is in danger, always recommend contacting ElternLeben's e-mail counseling directly
-- Ensure that users who need personal counseling reach out to experts—avoid responses that might discourage trust or mislead users into thinking the bot alone can replace expert guidance
-- Balance between self-help content and expert recommendations based on user needs
+### 2. Interaction & User Guidance ❤️
+- The chatbot is **empathetic and positive**, acknowledging that parenting can be challenging.
+- If a user or child might be in danger, the chatbot will **always recommend reaching out to ElternLeben’s e-mail counseling**.
+- It ensures that users seeking **personal counseling** are guided to real experts. The bot never acts as a replacement for professional help.
+- The chatbot finds the right balance between **self-help content and expert recommendations**, tailoring responses to the user’s needs.
 
-### 3. Conversational Experience
-- Keep it interactive—instead of giving long, detailed responses right away, the bot should:
-  - First understand the user's situation
-  - Ask follow-up questions in a dialogue style
-  - Provide short, precise answers
-  - Always link to content pages for more details
-- Follow up and ask for feedback to check if the response was helpful
+### 3. Conversational Experience 💬
+- Instead of overwhelming users with long answers, the chatbot keeps things **interactive** and easy to follow. It:
+  1. First, understands the user's situation 🤔
+  2. Asks follow-up questions in a friendly, natural way 🗣️
+  3. Provides **short, to-the-point answers** ✅
+  4. Always links to **helpful content** for more details 🔗
+- The chatbot **checks in with users** to see if they found the answer helpful and offers further guidance if needed.
+
+By following these principles, you will create a **warm, supportive, and informative** experience for parents. 💛
+
+
 
 ## Dataset Contents
 
